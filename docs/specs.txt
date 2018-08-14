@@ -1,0 +1,6 @@
+ScoreCardForm
+  ScoreRow
+    - distance
+    - first in
+    - last in
+    - all made
