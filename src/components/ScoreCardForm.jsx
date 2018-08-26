@@ -21,6 +21,7 @@ const ScoreCardForm = () => (
                 <ScoreRow parentName="scores" index={3} distance={25} />
                 <ScoreRow parentName="scores" index={4} distance={30} />
 
+
                 <button type="submit">
                   Submit
                 </button>
