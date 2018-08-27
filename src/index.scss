@@ -1,5 +1,53 @@
-.foo {
-  .bar {
-    color: red;
+body {
+  margin: 50px;
+}
+
+$danger: #c9302c;
+
+.score-row {
+  float: left;
+  clear: both;
+
+  .score {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .score-btn {
+    float: left;
+  }
+
+  .putts-made {
+    float: left;
+    width: 33%;
+    position: relative;
+
+    .distance-indicator {
+      color: red;
+      position: absolute;
+      top: 0;
+      left:0;
+      font-size: 10px;
+    }
+
+    .score {
+      margin-top: 10px;
+      display: block;
+      text-align: center;
+    }
+  }
+
+  .extra-points {
+    .checkbox {
+      margin-top: 0;
+    }
+  }
+
+  .total-distance-score {
+    .score {
+      background: $danger;
+      color: white;
+    }
   }
 }

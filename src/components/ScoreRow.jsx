@@ -1,30 +1,42 @@
 import React from 'react';
 import { Field } from 'formik';
-import { Button, Checkbox } from 'react-bootstrap';
+import { Button, Checkbox, Col, Row } from 'react-bootstrap';
 
 const ScoreRow = ({parentName, index, distance, score}) => {
 
   const getValue = () => score.score;
 
   return (
-    <div className="foo">
-      <Button>-</Button>
-      <span className="bar">{distance}:</span>
-      <span>{getValue()}</span>
-      <Button>+</Button>
+    <Row className="score-row">
+      <Col xs={4}>
+        <Button className="score-minus-btn score-btn btn-danger">-</Button>
+        <div className="putts-made">
+          <span className="distance-indicator">{distance}:</span>
+          <span className="score">{getValue()}</span>
+        </div>
+        <Button className="score-plus-btn score-btn btn-danger">+</Button>
+      </Col>
 
-      <Checkbox>
-        First in +2
-      </Checkbox>
+      <Col className="extra-points" xs={4} >
+        <Checkbox>
+          First in +2
+        </Checkbox>
 
-      <Checkbox>
-        Last in +2
-      </Checkbox>
+        <Checkbox>
+          Last in +2
+        </Checkbox>
+      </Col>
 
-      <Checkbox>
-        All made +5
-      </Checkbox>
-    </div>
+      <Col className="extra-points" xs={2}>
+        <Checkbox>
+          All made +5
+        </Checkbox>
+      </Col>
+
+      <Col className="total-distance-score" xs={2}>
+        <span className="score">{getValue()}</span>
+      </Col>
+    </Row>
   );
 };
 

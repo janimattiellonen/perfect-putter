@@ -31,13 +31,14 @@ const ScoreCardForm = ({ scoreCard, round }) => {
                   <ScoreRow parentName="scores" score={getScore(20)} index={2} distance={20} />
                   <ScoreRow parentName="scores" score={getScore(25)} index={3} distance={25} />
                   <ScoreRow parentName="scores" score={getScore(30)} index={4} distance={30} />
-
-                  <button type="submit">
-                    Submit
-                  </button>
                 </div>
               )}
             />
+
+            <div className="clearfix"></div>
+            <button type="submit">
+              Submit
+            </button>
           </Form>
         )}
       />
