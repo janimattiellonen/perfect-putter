@@ -5,6 +5,7 @@ import { ConnectedRouter } from 'react-router-redux';
 
 import App from './components/containers/AppContainer';
 import Index from './components/containers/IndexContainer';
+import ScoreCard from './components/containers/ScoreCardContainer';
 import ScoreCardList from './components/containers/ScoreCardListContainer';
 import AppLayout from './components/containers/layouts/AppLayout';
 
@@ -12,6 +13,7 @@ function AppLayoutRoute({ match }) {
   return (
     <AppLayout>
       <Route exact path={`${match.url}/`} component={Index} />
+      <Route exact path={`${match.url}/scorecard/:id`} component={ScoreCard} />
       <Route exact path={`${match.url}/scorecards`} component={ScoreCardList} />
     </AppLayout>
   );
