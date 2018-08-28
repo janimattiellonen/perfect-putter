@@ -3,7 +3,7 @@ import ScoreCardForm from './ScoreCardForm';
 
 class ScoreCard extends Component {
   render() {
-    const { scoreCard } = this.props;
+    const { scoreCard, setAllMade } = this.props;
 
     console.log("ss: " + JSON.stringify(scoreCard.rounds[String(1)]));
 
@@ -11,7 +11,11 @@ class ScoreCard extends Component {
       <div className="ScoreCardList">
         <p>Score card</p>
 
-        <ScoreCardForm scoreCard={scoreCard} round={scoreCard.currentRound} />
+        <ScoreCardForm 
+          setAllMade={setAllMade}
+          scoreCard={scoreCard} 
+          round={scoreCard.currentRound} 
+        />
       </div>
     );
   }

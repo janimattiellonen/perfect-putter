@@ -2,7 +2,7 @@ import React from 'react';
 import { Field } from 'formik';
 import { Button, Checkbox, Col, Row } from 'react-bootstrap';
 
-const ScoreRow = ({parentName, index, distance, score}) => {
+const ScoreRow = ({ distance, index, parentNamescore, round, score, setAllMade }) => {
 
   const getValue = () => score.score;
 
@@ -28,7 +28,7 @@ const ScoreRow = ({parentName, index, distance, score}) => {
       </Col>
 
       <Col className="extra-points" xs={2}>
-        <Checkbox>
+        <Checkbox onClick={() => setAllMade(round, distance)}>
           All made +5
         </Checkbox>
       </Col>
