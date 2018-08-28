@@ -1,5 +1,10 @@
 import { List, Map } from "immutable";
 
+import scoreService from '../score-service';
+
+const SET_SCORE = 'GAME/SCORE/SET_SCORE';
+const SET_ALL_MADE = 'GAME/SCORE/SET_ALL_MADE';
+
 const defaultState = Map({
   scoreCards: List(),
   scoreCard: {
@@ -24,14 +29,38 @@ const defaultState = Map({
   value: 42,
 }); 
 
-export function setAllMade(round, distance) {
+export function setScore(score, round, distance) {
+  return { type: SET_SCORE, payload: { score, round, distance }};
+}
 
+export function setAllMade(round, distance) {
+  return { type: SET_SCORE, payload: { score, round, distance }};
 }
 
 export default function (state = defaultState, action = {}) {
   const { type, payload } = action;
 
   switch (type) {
+    case SET_ALL_MADE: {
+      const round  = action.payload.round;
+      const distance = action.payload.distance;
+      const scores = state.get('scores');
+      const roundScores = scores.get(String(round));
+      const score = roundScores.get(distance);
+
+      return state
+        .set(
+          'scores', 
+          scores.set(
+            String(round), 
+            roundScores.set(
+              String(distance), 
+              {...score, puttsMade: 10, allIn: true, score: getMaxScoreFor(distance)}
+            )
+          )
+        );
+    }
+
     default:
     return state;
   }
