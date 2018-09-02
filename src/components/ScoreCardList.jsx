@@ -9,7 +9,6 @@ class ScoreCardList extends Component {
       <div className="ScoreCardList">
         <p>IT IS: {value && value}</p>
 
-        <ScoreCardForm />
       </div>
 
 

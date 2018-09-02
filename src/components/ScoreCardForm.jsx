@@ -5,12 +5,14 @@ import ScoreRow from './ScoreRow';
 
 const ScoreCardForm = ({ round, scoreCard, setAllMade }) => {
   const getScore = (distance) => {
-    console.log("ooo: " + JSON.stringify(scoreCard.rounds[1]));
-    const foo = scoreCard.rounds[1].get(distance.toString());
+    //console.log("AAA: " + JSON.stringify(scoreCard, null, 2));
 
-    console.log("foo: " + JSON.stringify(foo));
+   // console.log("ooo: " + JSON.stringify(scoreCard.get(String(1))));
+    const foo = scoreCard.get(String(round)).get(distance.toString());
 
-    return foo;
+    //console.log("round: " + round +  ", foo: " + JSON.stringify(foo));
+    console.log("score: " + foo.get('score'));
+    return foo.get('score');
   };
 
   console.log("aa: " + JSON.stringify(scoreCard));

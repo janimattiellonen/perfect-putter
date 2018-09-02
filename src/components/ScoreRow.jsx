@@ -12,7 +12,7 @@ const ScoreRow = ({ distance, index, parentNamescore, round, score, setAllMade }
         <Button className="score-minus-btn score-btn btn-danger">-</Button>
         <div className="putts-made">
           <span className="distance-indicator">{distance}:</span>
-          <span className="score">{getValue()}</span>
+          <span className="score">{score}</span>
         </div>
         <Button className="score-plus-btn score-btn btn-danger">+</Button>
       </Col>

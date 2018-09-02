@@ -5,7 +5,8 @@ import { setAllMade } from '../../ducks/scorecard';
 
 export default connect(
   state => ({
-    scoreCard: state.scorecard.get('scoreCard')
+    currentRound: state.scorecard.get('currentRound'),
+    scoreCard: state.scorecard.get('scoreCard'),
   }),
   {
     setAllMade,
