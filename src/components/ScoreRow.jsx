@@ -2,9 +2,30 @@ import React from 'react';
 import { Field } from 'formik';
 import { Button, Checkbox, Col, Row } from 'react-bootstrap';
 
-const ScoreRow = ({ distance, index, parentNamescore, round, score, setAllMade }) => {
+import scoreService from '../score-service';
+
+const ScoreRow = ({ distance, index, parentName, round, score, setAllMade }) => {
 
   const getValue = () => score.score;
+
+  const getAllMadeLabelValue = () => {
+    switch (distance) {
+      case 10:
+        return 5;
+
+      case 15:
+        return 10;
+
+      case 20:
+        return 15;
+
+      case 25:
+        return 20;
+
+      case 30:
+        return 25;
+    }
+  };
 
   return (
     <Row className="score-row">
@@ -18,19 +39,26 @@ const ScoreRow = ({ distance, index, parentNamescore, round, score, setAllMade }
       </Col>
 
       <Col className="extra-points" xs={4} >
-        <Checkbox>
-          First in +2
-        </Checkbox>
+        <Field 
+          type="checkbox" 
+          name={`scores[${index}]firstTwoMade`} 
+        />
+        <span>First in +{scoreService.calculateScoreForFirstMade(distance)}</span><br />
 
-        <Checkbox>
-          Last in +2
-        </Checkbox>
+        <Field 
+          type="checkbox" 
+          name={`scores[${index}]lastTwoMade`} 
+        />
+        <span>Last in +{scoreService.calculateScoreForLastMade(distance)}</span><br/>
       </Col>
 
       <Col className="extra-points" xs={2}>
-        <Checkbox onClick={() => setAllMade(round, distance)}>
-          All made +5
-        </Checkbox>
+        <Field 
+          type="checkbox" 
+          name={`scores[${index}]allMade`} 
+          onClick={() => setAllMade(round, distance)} 
+        />
+        <span>All made +{scoreService.calculateScoreForAllMade(distance)}</span><br />
       </Col>
 
       <Col className="total-distance-score" xs={2}>

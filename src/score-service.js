@@ -1,5 +1,5 @@
 
-const calculateScoreForTwoFirstMade = (distance) => {
+const calculateScoreForFirstMade = (distance) => {
   switch (distance) {
     case 10:
       return 2;
@@ -21,7 +21,7 @@ const calculateScoreForTwoFirstMade = (distance) => {
   }
 };
 
-const calculateScoreForTwoLastMade = (distance) => {
+const calculateScoreForLastMade = (distance) => {
   switch (distance) {
     case 10:
       return 2;
@@ -65,26 +65,31 @@ const calculateScoreForAllMade = (distance) => {
   }
 };
 
+const calculateScore = (puttsMade, firstTwoMade, lastTwoMade, allMade, distance) => {
+  var score = puttsMade;
+
+  if (puttsMade === 0) {
+    return 0;
+  }
+
+  if (firstTwoMade) {
+      score += calculateScoreForFirstMade(distance);
+  }
+
+  if (lastTwoMade) {
+    score += calculateScoreForLastMade(distance);
+  }
+
+  if (allMade) {
+    score += calculateScoreForAllMade(distance);
+  }
+
+  return score;
+};
+
 export default {
-  calculateScore: (puttsMade, firstTwoMade, lastTwoMade, allMade, distance) => {
-    var score = puttsMade;
-
-    if (puttsMade === 0) {
-      return 0;
-    }
-
-    if (firstTwoMade) {
-        score += calculateScoreForTwoFirstMade(distance);
-    }
-
-    if (lastTwoMade) {
-      score += calculateScoreForTwoLastMade(distance);
-    }
-
-    if (allMade) {
-      score += calculateScoreForAllMade(distance);
-    }
-
-    return score;
-  },
+  calculateScoreForFirstMade,
+  calculateScoreForLastMade,
+  calculateScoreForAllMade,
+  calculateScore,
 };
