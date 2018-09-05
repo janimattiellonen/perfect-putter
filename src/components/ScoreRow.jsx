@@ -26,14 +26,14 @@ const ScoreRow = ({ distance, index, parentName, round, score, setAllMade }) => 
         return 25;
     }
   };
-
+  console.log("ssss: " + JSON.stringify(score.get('score')));
   return (
     <Row className="score-row">
       <Col xs={4}>
         <Button className="score-minus-btn score-btn btn-danger">-</Button>
         <div className="putts-made">
           <span className="distance-indicator">{distance}:</span>
-          <span className="score">{score}</span>
+          <span className="score">{score.get('puttsMade')}</span>
         </div>
         <Button className="score-plus-btn score-btn btn-danger">+</Button>
       </Col>
@@ -41,13 +41,13 @@ const ScoreRow = ({ distance, index, parentName, round, score, setAllMade }) => 
       <Col className="extra-points" xs={4} >
         <Field 
           type="checkbox" 
-          name={`scores[${index}]firstTwoMade`} 
+          name={`scores[${index}]firstMade`} 
         />
         <span>First in +{scoreService.calculateScoreForFirstMade(distance)}</span><br />
 
         <Field 
           type="checkbox" 
-          name={`scores[${index}]lastTwoMade`} 
+          name={`scores[${index}]lastMade`} 
         />
         <span>Last in +{scoreService.calculateScoreForLastMade(distance)}</span><br/>
       </Col>
@@ -62,7 +62,7 @@ const ScoreRow = ({ distance, index, parentName, round, score, setAllMade }) => 
       </Col>
 
       <Col className="total-distance-score" xs={2}>
-        <span className="score">{getValue()}</span>
+        <span className="score">{score.get('score')}</span>
       </Col>
     </Row>
   );

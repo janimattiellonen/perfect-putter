@@ -23,9 +23,12 @@ body {
     .score-row .putts-made .score {
       margin-top: 10px;
       display: block;
-      text-align: center; }
+      text-align: center;
+      border: solid red 1px; }
   .score-row .extra-points .checkbox {
     margin-top: 0; }
   .score-row .total-distance-score .score {
+    display: block;
     background: #c9302c;
-    color: white; }
+    color: white;
+    border: solid red 1px; }

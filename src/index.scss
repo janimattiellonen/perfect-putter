@@ -35,6 +35,7 @@ $danger: #c9302c;
       margin-top: 10px;
       display: block;
       text-align: center;
+      border: solid red 1px;
     }
   }
 
@@ -46,8 +47,11 @@ $danger: #c9302c;
 
   .total-distance-score {
     .score {
+      display: block;
       background: $danger;
       color: white;
+      border: solid red 1px;
+
     }
   }
 }

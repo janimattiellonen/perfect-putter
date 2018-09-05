@@ -72,6 +72,10 @@ const calculateScore = (puttsMade, firstTwoMade, lastTwoMade, allMade, distance)
     return 0;
   }
 
+  if (allMade) {
+    score *= 2;
+  }
+
   if (firstTwoMade) {
       score += calculateScoreForFirstMade(distance);
   }

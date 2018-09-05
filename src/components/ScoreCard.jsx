@@ -5,7 +5,7 @@ class ScoreCard extends Component {
   render() {
     const { currentRound, scoreCard, setAllMade } = this.props;
 
-    console.log("ScoreCard is: " + JSON.stringify(scoreCard, null, 2));
+   // console.log("ScoreCard is: " + JSON.stringify(scoreCard, null, 2));
     return (
       <div className="ScoreCardList">
         <p>Score card</p>
