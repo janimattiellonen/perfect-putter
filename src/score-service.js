@@ -72,7 +72,7 @@ const calculateScore = (puttsMade, firstTwoMade, lastTwoMade, allMade, distance)
     return 0;
   }
 
-  if (allMade) {
+  if (distance == 30 && allMade) {
     score *= 2;
   }
 

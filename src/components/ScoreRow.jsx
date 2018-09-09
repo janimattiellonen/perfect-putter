@@ -26,6 +26,9 @@ const ScoreRow = ({ distance, index, parentName, round, score, setAllMade }) => 
         return 25;
     }
   };
+
+  const isCheckBoxChecked = (score, key) => (score.get(key));
+
   console.log("ssss: " + JSON.stringify(score.get('score')));
   return (
     <Row className="score-row">
@@ -41,13 +44,15 @@ const ScoreRow = ({ distance, index, parentName, round, score, setAllMade }) => 
       <Col className="extra-points" xs={4} >
         <Field 
           type="checkbox" 
-          name={`scores[${index}]firstMade`} 
+          name={`scores[${index}]firstMade`}
+          checked={isCheckBoxChecked(score, 'firstMade')}
         />
         <span>First in +{scoreService.calculateScoreForFirstMade(distance)}</span><br />
 
         <Field 
           type="checkbox" 
           name={`scores[${index}]lastMade`} 
+          checked={isCheckBoxChecked(score, 'lastMade')}
         />
         <span>Last in +{scoreService.calculateScoreForLastMade(distance)}</span><br/>
       </Col>
